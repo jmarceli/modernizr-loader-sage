@@ -101,6 +101,10 @@ webpackConfig = {
       }
     ],
     loaders: [
+      {
+        test: /\.modernizrrc$/,
+        loader: "modernizr"
+      },
       jsLoader,
       {
         test: /\.css$/,
@@ -161,7 +165,10 @@ webpackConfig = {
     modulesDirectories: [
       'node_modules',
       'bower_components'
-    ]
+    ],
+    alias: {
+      modernizr$: path.resolve(__dirname, "./.modernizrrc")
+    }
   },
   externals: {
     jquery: 'jQuery'

@@ -14,6 +14,8 @@ import 'bootstrap/dist/js/umd/tab.js';
 import 'bootstrap/dist/js/umd/tooltip.js';
 import 'bootstrap/dist/js/umd/popover.js';
 
+import Modernizr from 'modernizr';
+
 // Use this variable to set up the common and page specific functions. If you
 // rename this variable, you will also need to rename the namespace below.
 var Sage = {
@@ -45,5 +47,13 @@ var Sage = {
 
 // Load Events
 $(document).ready(function() {
+  console.log('ready');
   new Router(Sage).loadEvents();
+
+  if (Modernizr.promises) {
+    console.log('promises support');
+  }
+  else {
+    console.log('NO promises support');
+  }
 });
